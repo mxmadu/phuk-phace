@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&lt;PRETTY_HURTS_UGLY_KILLS_PALE_SKIN&gt;</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.166.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.166.0/examples/jsm/"
+          }
+        }
+      </script>
+</head>
+<body>
+    <div class="header-marquee">
+        <div class="marquee-text"> 
+            <h1 class="marquee1">&lt;PRETTY_HURTS_UGLY_KILLS&gt;</h1>
+        </div>
+        <div class="marquee-text"> 
+            <h1 class="marquee2">&lt;PRETTY_HURTS_UGLY_KILLS&gt;</h1>
+        </div>
+        
+    </div>
+    
+    
+    <!-- <div class="menu-content"> -->
+        <!-- <h2>Main Content Div</h2> -->
+        <nav id="navbar">
+            <!-- <a href="albino.html" id="homeLink">&lt;HOME&gt;</a><br> -->
+            <a href="about.html" id="aboutLink">&lt;ABOUT&gt;</a>
+            <!-- <a href="about.html" id="aboutLink">&lt;PHUK_PHACE&gt;</a> -->
+
+        </nav>
+        <div id="change-menu"> 
+            <p>&lt;CHANGE_SKIN&gt;</p><br>
+                <a href="index.html" id="albinoLink">&nbsp;&nbsp;&nbsp;&lt;PALE&gt;</a><br><br>
+                <a href="dark.html" id="darkLink">&nbsp;&nbsp;&nbsp;&lt;DARK&gt;</a><br><br>
+                <a href="sallow.html" id="sallowLink">&nbsp;&nbsp;&nbsp;&lt;SALLOW&gt;</a><br><br>
+        </div>
+    <!-- </div> -->
+    <!-- <div id="infoBox" class="modal" style="display: none;">
+        <div class="modal-content"></div>
+        <button onclick="document.getElementById('infoBox').style.display='none';">X</button>
+    </div> -->
+    <div class="enlarge">
+    <button onclick="toggleFullscreen()">
+        <!-- <img src="img/fullscreen.png" alt=""> -->
+        <svg width="50" height="50" class="fullscreen">
+            <path
+              id="enter-fullscreen"
+              stroke="#5EFF12"
+              stroke-width="3"
+              fill="none"
+              d="
+                 M 10, 2 L 2,2 L 2, 10
+                 M 20, 2 L 28,2 L 28, 10
+                 M 28, 20 L 28,28 L 20, 28
+                 M 10, 28 L 2,28 L 2, 20"
+              />
+            <path
+              id="exit-fullscreen"
+              stroke="transparent"
+              stroke-width="3"
+              fill="none"
+              d="
+                 M 10, 2 L 10,10 L 2, 10
+                 M 20, 2 L 20,10 L 28, 10
+                 M 28, 20 L 20,20 L 20, 28
+                 M 10, 28 L 10,20 L 2, 20"
+              />
+          </svg>
+        </button>
+    </div>
+<div class="progress-bar-container">
+    <label for="progress-bar">&lt;LOADING&gt;</label>
+    <progress id="progress-bar" value="0" max="100"></progress>
+</div>
+</body>
+<script type="module" src= "src/js/phukA.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const currentUrl = window.location.pathname.split("/").pop();
+        console.log("Current URL:", currentUrl);
+
+        const links = document.querySelectorAll("nav#navbar a, div#change-menu a");
+        
+        links.forEach(link => {
+            console.log("Link href:", link.href, "includes current URL:", link.href.includes(currentUrl));
+            if (link.href.includes(currentUrl)) {
+                link.classList.add("active");
+            }
+        });
+    });
+
+//     let isFullscreen= false;
+
+// function toggleFullscreen(){
+//     isFullscreen
+//         ?document.exitFullscreen?.()
+//             :
+//             document.documentElement.requestFullscreen?.(),
+//             (isFullscreen=!isFullscreen)
+// }
+
+// let button = document.getElementById("full-screen");
+
+// button.addEventListener("click",toggleFullscreen);
+
+const enterFullscreen = document.getElementById("enter-fullscreen");
+const exitFullscreen = document.getElementById("exit-fullscreen");
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+    enterFullscreen.setAttribute("stroke", "transparent");
+    exitFullscreen.setAttribute("stroke", "#5EFF12");
+  } else {
+    document.exitFullscreen();
+    enterFullscreen.setAttribute("stroke", "#5EFF12");
+    exitFullscreen.setAttribute("stroke", "transparent");
+  }
+}
+</script>
+</html>

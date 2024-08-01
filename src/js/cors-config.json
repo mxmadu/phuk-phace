@@ -1,0 +1,9 @@
+[
+    {
+      "origin": ["https://mxmadu.github.io"],
+      "responseHeader": ["Content-Type"],
+      "method": ["GET", "HEAD", "OPTIONS"],
+      "maxAgeSeconds": 3600
+    }
+  ]
+  
