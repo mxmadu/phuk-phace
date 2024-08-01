@@ -47,7 +47,7 @@ const loadingManager = new THREE.LoadingManager();
 // }
 
 const hdrLoader = new RGBELoader(loadingManager);
-hdrLoader.load('../img/studio.hdr', function(texture) {
+hdrLoader.load('https://mxmadu.github.io/phuk/img/studio.hdr', function(texture) {
     const envMap = pmremGenerator.fromEquirectangular(texture).texture;
     scene.background = envMap;
     scene.environment = envMap;
@@ -72,7 +72,7 @@ const gltfLoader = new GLTFLoader(loadingManager);
 gltfLoader.setDRACOLoader(dracoLoader);
 
 let model;
-gltfLoader.load('../models/compressed_PALE.glb', function(gltf) {
+gltfLoader.load('https://mxmadu.github.io/phuk/models/compressed_PALE.glb', function(gltf) {
   model = gltf.scene;
   model.rotation.set(0, Math.PI, 0);
   model.receiveShadow = true;
@@ -150,7 +150,7 @@ gltfLoader.load('../models/compressed_PALE.glb', function(gltf) {
         div.style.position = 'absolute';
         div.style.width = '20px';
         div.style.height = '20px';
-        div.style.backgroundImage = 'url("../img/touchpoint.png")';
+        div.style.backgroundImage = 'url("https://mxmadu.github.io/phuk/img/touchpoint.png")';
         div.style.backgroundSize = 'cover';
         div.style.backgroundColor = 'transparent';
         div.style.cursor = 'pointer';
@@ -230,7 +230,7 @@ line.style.display = 'none';
 document.body.appendChild(line);
 
 const closeImage = new Image();
-closeImage.src = '../img/close.png';
+closeImage.src = 'https://mxmadu.github.io/phuk/img/close.png';
 closeImage.style.position = 'absolute';
 closeImage.style.width = '25px';
 closeImage.style.height = '25px';
