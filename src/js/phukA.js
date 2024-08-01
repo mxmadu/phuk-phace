@@ -1,8 +1,9 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'https://mxmadu.github.io/phuk/node_modules/three/examples/jsm/controls/OrbitControls.js';
-import { RGBELoader } from 'https://mxmadu.github.io/phuk/node_modules/three/examples/jsm/loaders/RGBELoader.js';
-import { GLTFLoader } from 'https://mxmadu.github.io/phuk/node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-import { DRACOLoader } from 'https://mxmadu.github.io/phuk/node_modules/three/examples/jsm/loaders/DRACOLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
+
 
 
 const scene = new THREE.Scene();
