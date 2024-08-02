@@ -1,25 +1,16 @@
-import * as THREE from 'three';
-import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitControls.js';
-import { RGBELoader } from '/node_modules/three/examples/jsm/loaders/RGBELoader.js';
-import { GLTFLoader } from '/node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.module.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/controls/OrbitControls.js';
+import { RGBELoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/loaders/RGBELoader.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/loaders/DRACOLoader.js';
 
-
-
+// Set up the scene, camera, and renderer
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 600, 0.1, 1000);
 
-
-// let modelPaths = ['../models/PHUK_PHACE_A.glb','../models/PHUK_PHACE_D.glb','../models/PHUK_PHACE_S.glb']
-let currentPathIndex = 0;
-let currentModel;
-// loadModel(currentPathIndex);
-
-
-
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, 600);
-console.log('Window Inner Width: ', window.innerWidth + 'Window Inner Height:' + window.innerHeight);
-renderer.toneMapping = THREE.NeutralToneMapping
+renderer.toneMapping = THREE.NeutralToneMapping;
 renderer.toneMappingExposure = 0.25;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -29,118 +20,101 @@ document.body.appendChild(renderer.domElement);
 const div = document.getElementById('slay-queens');
 div.appendChild(renderer.domElement);
 
-
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello World!");
 });
-// window.addEventListener('resize', () => {
-//   const width = window.innerWidth;
-//   const height = window.innerHeight;
-//   renderer.setSize(width, height);
-//   camera.aspect = width / height;
-//   camera.updateProjectionMatrix();
-// });
+
+// Set up the Loading Manager
+const loadingManager = new THREE.LoadingManager();
+
+const progressBar = document.getElementById('progress-bar');
+const progressBarContainer = document.querySelector('.progress-bar-container');
+
+loadingManager.onStart = function (url, item, total) {
+  console.log(`Started loading: ${url}`);
+};
+
+loadingManager.onProgress = function (url, loaded, total) {
+  progressBar.value = (loaded / total) * 100;
+  console.log(`Loading progress: ${Math.round(progressBar.value)}%`);
+};
+
+loadingManager.onLoad = function () {
+  progressBarContainer.style.display = 'none';
+};
+
+loadingManager.onError = function (url) {
+  console.error(`Got a problem loading: ${url}`);
+};
 
 // Load HDR environment map
 const pmremGenerator = new THREE.PMREMGenerator(renderer);
 pmremGenerator.compileEquirectangularShader();
 
-const hdrLoader = new RGBELoader();
-hdrLoader.load('../img/studio.hdr', function (texture) {
-    const envMap = pmremGenerator.fromEquirectangular(texture).texture;
-    scene.background = envMap;
-    scene.environment = envMap;
-    texture.dispose();
-    pmremGenerator.dispose();
-});
+const loadHDR = () => {
+  return new Promise((resolve, reject) => {
+    const hdrLoader = new RGBELoader(loadingManager);
+    hdrLoader.load('../img/studio.hdr', function (texture) {
+      const envMap = pmremGenerator.fromEquirectangular(texture).texture;
+      scene.background = envMap;
+      scene.environment = envMap;
+      texture.dispose();
+      pmremGenerator.dispose();
+      resolve();
+    }, undefined, reject);
+  });
+};
 
-//lighting
-
+// Lighting
 const ambient = new THREE.AmbientLight(0xffffff, 0.1);
 scene.add(ambient);
 
 const dLight = new THREE.DirectionalLight(0xffffff, 0.5);
 dLight.position.set(0, 0, 6);
-// dLight.castShadow = true;
 scene.add(dLight);
 
 const hLight = new THREE.PointLight(0XFFFFFF, 1);
 hLight.position.set(0, 3, 0);
 scene.add(hLight);
 
+// Load Models
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.7/');
 
-
-// Add a cube to the scene
-// const geometry = new THREE.BoxGeometry(1, 1, 1);
-// const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-// const cube = new THREE.Mesh(geometry, material);
-// scene.add(cube);
-
-const loaderA = new GLTFLoader();
-
-loaderA.load( '../models/PHUK_PHACE_A.glb', function ( gltf ) {
-  gltf.scene.rotation.set(0, Math.PI, 0); // Rotate the model to show the front face
-  gltf.scene.position.set(2, 3, 0); // Move the model down along the Y axis
-  loaderA.receiveShadow = true;
-
-	scene.add( gltf.scene );
-
-}, undefined, function ( error ) {
-
-	console.error( error );
-
-} );
-
-const loaderD = new GLTFLoader();
-
-loaderD.load( '../models/PHUK_PHACE_D.glb', function ( gltf ) {
-  gltf.scene.rotation.set(0, Math.PI, 0);
-  gltf.scene.position.set(0, 0, 0); // Move the model down along the Y axis
- 
-  loaderD.receiveShadow = true;
-
-
-	scene.add( gltf.scene );
-
-}, undefined, function ( error ) {
-
-	console.error( error );
-
-} );
-
-const loaderS = new GLTFLoader();
-
-
-loaderS.load( '../models/PHUK_PHACE_S.glb', function ( gltf ) {
-    gltf.scene.rotation.set(0, Math.PI, 0); // Rotate the model to show the front face
-    gltf.scene.position.set(-2, 3, 0); // Move the model down along the Y axis
-    loaderS.receiveShadow = true;
-  
-      scene.add( gltf.scene );
-  
-  }, undefined, function ( error ) {
-  
-      console.error( error );
-  
-  } );
+const loadModel = (path, position) => {
+  return new Promise((resolve, reject) => {
+    const loader = new GLTFLoader(loadingManager);
+    loader.setDRACOLoader(dracoLoader);
+    loader.load(path, function (gltf) {
+      gltf.scene.rotation.set(0, Math.PI, 0);
+      gltf.scene.position.set(position.x, position.y, position.z);
+      gltf.scene.receiveShadow = true;
+      scene.add(gltf.scene);
+      resolve();
+    }, undefined, reject);
+  });
+};
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.autoRotate = true;
 controls.enabled = false;
 
-
 camera.position.set(-7, 2, -8);
 camera.lookAt(scene.position);
 
-
-
-
-
 function animate() {
-    // loaderS.rotation.x += 0.01;
-    // loaderS.rotation.y += 0.01;
-    controls.update(); 
-    renderer.render(scene, camera);
+  controls.update(); 
+  renderer.render(scene, camera);
 }
 
-renderer.setAnimationLoop(animate);
+// Load all resources and start rendering
+Promise.all([
+  loadHDR(),
+  loadModel('../models/compressed.glb', { x: 2, y: 3, z: 0 }),
+  loadModel('../models/compressed_D.glb', { x: 0, y: 0, z: 0 }),
+  loadModel('../models/compressed_S.glb', { x: -2, y: 3, z: 0 })
+]).then(() => {
+  renderer.setAnimationLoop(animate);
+}).catch(error => {
+  console.error('An error occurred while loading resources:', error);
+});
