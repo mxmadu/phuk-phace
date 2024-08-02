@@ -344,7 +344,8 @@ div.scroll-container, div.ref-container {
 
 .marquee2-text h1{
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 3;
+    margin: 0;
 }
 
 .header-marquee2 {
@@ -354,14 +355,33 @@ div.scroll-container, div.ref-container {
     white-space: nowrap;
     margin: 0;
     background-color: black;
+    width: 250%;
+    overflow-y: hidden;
+    
 }
 
 .marquee2-text {
     display: inline-block;
-    width: 100%;
-    animation: marquee 7s infinite linear;
-    padding: 5%;
+    width: 80%;
+    animation: marquee 10s infinite linear;
+    /* padding: 5%; */
+    padding: 0;
 }
+
+@keyframes marquee3  {
+    0% {
+        transform: translateX(0%);
+    }
+    200% {
+        transform: translateX(-200%);
+    }
+}
+
+.marquee4{
+    animation-delay: 2s;
+
+}
+
 
 
 
@@ -466,5 +486,33 @@ div.scroll-container, div.ref-container {
         margin-right: 10px;
     }
 
+    .header-marquee2 {
+        overflow: hidden;
+        position: relative;
+        /* display: flex; */
+        white-space: nowrap;
+        margin: 0;
+        background-color: black;
+        width: 100%;
+        overflow-y: hidden;
+        
+    }
+    
+    .marquee2-text {
+        display: inline-block;
+        width: 100%;
+        animation: marquee 10s infinite linear;
+        /* padding: 5%; */
+        padding: 0;
+    }
+    
+    @keyframes marquee3  {
+        0% {
+            transform: translateX(0%);
+        }
+        200% {
+            transform: translateX(-200%);
+        }
+    }
     
 }
