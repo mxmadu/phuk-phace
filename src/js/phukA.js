@@ -95,7 +95,7 @@ gltfLoader.load('https://mxmadu.github.io/phuk/models/compressed.glb', function(
           header: '&lt;SCAR&gt;',
           text: 'Scars are used as early signs to let viewers know who the \‘bad\’ guy is. While this visual signifies the rugged or tough nature of a character, in many narratives it is usually the cause of or the marker of the moment that begins the character\’s descent into evil.',
           images: [
-              { src: 'https://mxmadu.github.io/phuk/img/rogers.jpg', alt: 'Woodes Rogers from Assassin\'s Creed, short brown hair a huge scar all over his left cheek,', caption: '&lt;Woodes_rogers_in_assassin\'s_creed&gt;' },
+              { src: 'https://mxmadu.github.io/phuk/img/woodes.jpg', alt: 'Woodes Rogers from Assassin\'s Creed, short brown hair a huge scar all over his left cheek,', caption: '&lt;Woodes_rogers_in_assassin\'s_creed&gt;' },
               { src: 'https://mxmadu.github.io/phuk/img/silco.jpeg', alt: 'Silco in Arcane, short black hair, a long narrow face and nose, one green eye and one prosthetic eye as well as 3 long scars going from his left temple to his upper lip', caption: '&lt;Silco_in_arcane_&gt;' }
           ],
           footer: '',
