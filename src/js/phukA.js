@@ -1,8 +1,8 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
+ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.139.0/build/three.module.js';
+    import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.139.0/examples/jsm/controls/OrbitControls.js';
+    import { RGBELoader } from 'https://cdn.jsdelivr.net/npm/three@0.139.0/examples/jsm/loaders/RGBELoader.js';
+    import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.139.0/examples/jsm/loaders/GLTFLoader.js';
+    import { DRACOLoader } from 'https://cdn.jsdelivr.net/npm/three@0.139.0/examples/jsm/loaders/DRACOLoader.js';
 
 
 
