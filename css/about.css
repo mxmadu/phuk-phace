@@ -46,6 +46,74 @@ h1 {
     padding: 0;
 }
 
+
+
+
+.progress-bar-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#progress-bar {
+    width: 30%;
+    margin-top: 0.5%;
+    height: 3%;
+    /* background-color: #FFFFFF; */
+    border: solid, 2px black ;
+    border-radius: 25px;
+
+    background-color: var(--secondary);
+
+    
+}
+
+label {
+    color: white;
+    font-size: 2rem;
+    font-family: "Space Mono", monospace;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+
+
+progress {
+    accent-color: var(--primary);
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary);
+    appearance: none; /* Reset default styles */
+    border-radius: 25px;
+
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--secondary); /* White background for the progress bar */
+    border-radius: 25px;
+
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--primary); /* Green progress indicator */
+    border-radius: 25px;
+
+}
+
+progress::-moz-progress-bar {
+    background-color: var(--primary); /* Green progress indicator for Firefox */
+    border-radius: 25px;
+
+}
+
 @keyframes marquee {
     0% {
         transform: translateX(0%);
