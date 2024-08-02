@@ -4,7 +4,6 @@ import { RGBELoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/loaders/DRACOLoader.js';
 
-// Set up the scene, camera, and renderer
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 600, 0.1, 1000);
 
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello World!");
 });
 
-// Set up the Loading Manager
+
 const loadingManager = new THREE.LoadingManager();
 
 const progressBar = document.getElementById('progress-bar');
