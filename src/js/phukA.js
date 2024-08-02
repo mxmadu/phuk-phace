@@ -74,7 +74,7 @@ const gltfLoader = new GLTFLoader(loadingManager);
 gltfLoader.setDRACOLoader(dracoLoader);
 
 let model;
-gltfLoader.load('https://mxmadu.github.io/phuk/models/compressed_PALE.glb', function(gltf) {
+gltfLoader.load('https://mxmadu.github.io/phuk/models/compressed.glb', function(gltf) {
   model = gltf.scene;
   model.rotation.set(0, Math.PI, 0);
   model.receiveShadow = true;
