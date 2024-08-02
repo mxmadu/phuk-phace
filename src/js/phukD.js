@@ -1,8 +1,9 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.module.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/controls/OrbitControls.js';
+import { RGBELoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/loaders/RGBELoader.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/loaders/DRACOLoader.js';
+
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -47,7 +48,7 @@ const loadingManager = new THREE.LoadingManager();
 // }
 
 const hdrLoader = new RGBELoader(loadingManager);
-hdrLoader.load('../img/studio.hdr', function(texture) {
+hdrLoader.load('https://mxmadu.github.io/phuk/img/studio.hdr', function(texture) {
     const envMap = pmremGenerator.fromEquirectangular(texture).texture;
     scene.background = envMap;
     scene.environment = envMap;
@@ -69,7 +70,7 @@ const gltfLoader = new GLTFLoader(loadingManager);
 gltfLoader.setDRACOLoader(dracoLoader);
 
 let model;
-gltfLoader.load('../models/compressed_D.glb', function(gltf) {
+gltfLoader.load('https://mxmadu.github.io/phuk/models/compressed_D.glb', function(gltf) {
   model = gltf.scene;
   model.rotation.set(0, Math.PI, 0);
   model.receiveShadow = true;
@@ -82,7 +83,7 @@ gltfLoader.load('../models/compressed_D.glb', function(gltf) {
         header: '&lt;LARGE_NOSE&gt;',
         text: 'Large noses find themselves on villainous faces more often than the heroic ones. When they are given a hooked shape, it is often meant to denote that a character is Jewish or Arab, an anti-semitic stereotype implying shifty behavior, greed or malicious intent as inherent to one\’s nature.',
         images: [
-            { src: '../img/blackbeard.jpeg', alt: 'Blackbeard from One Piece grinning nefariously, tan skin, large nose, missing upper and lower teeth', caption: '&lt;Blackbeard_in_one_piece&gt;' },
+            { src: 'https://mxmadu.github.io/phuk/img/blackbeard.jpeg', alt: 'Blackbeard from One Piece grinning nefariously, tan skin, large nose, missing upper and lower teeth', caption: '&lt;Blackbeard_in_one_piece&gt;' },
             { src: '../img/captain_hook.jpeg', alt: 'Captain Hook in Peter Pan with a red coat and massive, deep purple hat. He left hand is a golden hook and he has a large nose and pointy mustache, he is grinning mischeviously', caption: '&lt;Captain_hook_in_peter_pan&gt;' }
         ],
         footer: '',
