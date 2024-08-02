@@ -5,8 +5,6 @@ import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/
 import { DRACOLoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/loaders/DRACOLoader.js';
 
 
-
-
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -242,7 +240,7 @@ function showInfoBox(event, point) {
   infoBox.innerHTML = `
       <div style="float: right; display: flex; align-items: center;">
           <span style="margin-right: 10px; color: #5EFF12; font-family: 'Space Mono', monospace; font-size: 16px; cursor: pointer;" class="close-button">&lt;CLOSE&gt;</span>
-          <img src="../img/close.png" style="width: 20px; height: 20px; cursor: pointer;" class="close-button" />
+          <img src="https://mxmadu.github.io/phuk/img/close.png" style="width: 20px; height: 20px; cursor: pointer;" class="close-button" />
       </div>
       <br>
       <br>
@@ -331,7 +329,6 @@ function handleClick(event) {
             const dy = event.clientY - elementY;
 
             if (Math.sqrt(dx * dx + dy * dy) <= clickToleranceRadius) {
-                // playClickAudio(); // Uncomment if you have a click audio function
                 showInfoBox(event, touchpoint);
             }
         });
