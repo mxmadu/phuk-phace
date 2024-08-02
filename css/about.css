@@ -340,6 +340,8 @@ div.scroll-container, div.ref-container {
     font-family: "Space Mono", monospace;
     font-weight: 400;
     color: var(--primary);
+      text-align: justify;
+  text-justify: inter-word;
 }
 
 .marquee2-text h1{
