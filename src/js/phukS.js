@@ -1,7 +1,9 @@
-import * as THREE from 'three';
-import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitControls.js';
-import { RGBELoader } from '/node_modules/three/examples/jsm/loaders/RGBELoader.js';
-import { GLTFLoader } from '/node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.module.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/controls/OrbitControls.js';
+import { RGBELoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/loaders/RGBELoader.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/loaders/DRACOLoader.js';
+
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -61,9 +63,15 @@ const dLight = new THREE.DirectionalLight(0xffffff, 0.5);
 dLight.position.set(0, 0, 6);
 scene.add(dLight);
 
-const loader = new GLTFLoader(loadingManager);
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.7/');
+
+const gltfLoader = new GLTFLoader(loadingManager);
+gltfLoader.setDRACOLoader(dracoLoader);
+
+
 let model;
-loader.load('../models/PHUK_PHACE_S.glb', function(gltf) {
+gltfLoader.load('../models/compressed_S.glb', function(gltf) {
   model = gltf.scene;
   model.rotation.set(0, Math.PI, 0);
   model.receiveShadow = true;
