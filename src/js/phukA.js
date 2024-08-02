@@ -47,7 +47,7 @@ const loadingManager = new THREE.LoadingManager();
 // }
 
 const hdrLoader = new RGBELoader(loadingManager);
-hdrLoader.load('https://mxmadu.github.io/phuk/img/studio.hdr', function(texture) {
+hdrLoader.load('https://mxmadu.github.io/phuk-phace/img/studio.hdr', function(texture) {
     const envMap = pmremGenerator.fromEquirectangular(texture).texture;
     scene.background = envMap;
     scene.environment = envMap;
@@ -72,7 +72,7 @@ const gltfLoader = new GLTFLoader(loadingManager);
 gltfLoader.setDRACOLoader(dracoLoader);
 
 let model;
-gltfLoader.load('https://mxmadu.github.io/phuk/models/compressed.glb', function(gltf) {
+gltfLoader.load('https://mxmadu.github.io/phuk-phace/models/compressed.glb', function(gltf) {
   model = gltf.scene;
   model.rotation.set(0, Math.PI, 0);
   model.receiveShadow = true;
@@ -85,8 +85,8 @@ gltfLoader.load('https://mxmadu.github.io/phuk/models/compressed.glb', function(
           header: '&lt;LARGE_NOSE&gt;',
           text: 'Large noses find themselves on villainous faces more often than the heroic ones. When they are given a hooked shape, it is often meant to denote that a character is Jewish or Arab, an anti-semitic stereotype implying shifty behavior, greed or malicious intent as inherent to one\’s nature.',
           images: [
-              { src: 'https://mxmadu.github.io/phuk/img/blackbeard.jpeg', alt: 'Blackbeard from One Piece grinning nefariously, tan skin, large nose, missing upper and lower teeth', caption: '&lt;Blackbeard_in_one_piece&gt;' },
-              { src: 'https://mxmadu.github.io/phuk/img/captain_hook.jpeg', alt: 'Captain Hook in Peter Pan with a red coat and massive, deep purple hat. He left hand is a golden hook and he has a large nose and pointy mustache, he is grinning mischeviously', caption: '&lt;Captain_hook_in_peter_pan&gt;' }
+              { src: 'https://mxmadu.github.io/phuk-phace/img/blackbeard.jpeg', alt: 'Blackbeard from One Piece grinning nefariously, tan skin, large nose, missing upper and lower teeth', caption: '&lt;Blackbeard_in_one_piece&gt;' },
+              { src: 'https://mxmadu.github.io/phuk-phace/img/captain_hook.jpeg', alt: 'Captain Hook in Peter Pan with a red coat and massive, deep purple hat. He left hand is a golden hook and he has a large nose and pointy mustache, he is grinning mischeviously', caption: '&lt;Captain_hook_in_peter_pan&gt;' }
           ],
           footer: '',
       },
@@ -95,8 +95,8 @@ gltfLoader.load('https://mxmadu.github.io/phuk/models/compressed.glb', function(
           header: '&lt;SCAR&gt;',
           text: 'Scars are used as early signs to let viewers know who the \‘bad\’ guy is. While this visual signifies the rugged or tough nature of a character, in many narratives it is usually the cause of or the marker of the moment that begins the character\’s descent into evil.',
           images: [
-              { src: 'https://mxmadu.github.io/phuk/img/woodes.jpg', alt: 'Woodes Rogers from Assassin\'s Creed, short brown hair a huge scar all over his left cheek,', caption: '&lt;Woodes_rogers_in_assassin\'s_creed&gt;' },
-              { src: 'https://mxmadu.github.io/phuk/img/silco.jpeg', alt: 'Silco in Arcane, short black hair, a long narrow face and nose, one green eye and one prosthetic eye as well as 3 long scars going from his left temple to his upper lip', caption: '&lt;Silco_in_arcane&gt;' }
+              { src: 'https://mxmadu.github.io/phuk-phace/img/woodes.jpg', alt: 'Woodes Rogers from Assassin\'s Creed, short brown hair a huge scar all over his left cheek,', caption: '&lt;Woodes_rogers_in_assassin\'s_creed&gt;' },
+              { src: 'https://mxmadu.github.io/phuk-phace/img/silco.jpeg', alt: 'Silco in Arcane, short black hair, a long narrow face and nose, one green eye and one prosthetic eye as well as 3 long scars going from his left temple to his upper lip', caption: '&lt;Silco_in_arcane&gt;' }
           ],
           footer: '',
       },
@@ -105,8 +105,8 @@ gltfLoader.load('https://mxmadu.github.io/phuk/models/compressed.glb', function(
         header: '&lt;SKIN_CONDITION&gt;',
         text: 'Pale skin, particularly albinism is used in character design to connote an individual who should be feared, distrusted or avoided.',
         images: [
-            { src: 'https://mxmadu.github.io/phuk/img/voldemort.jpg', alt: 'Voldemort, from the Harry Potter Franchise, bald and extremely pale, holding a wand menancingly', caption: '&lt;VOLDEMORT_IN_the_HARRY_POTTER_movies&gt;' },
-            { src: 'https://mxmadu.github.io/phuk/img/twins.png', alt: 'The twins from The Matrix Reloaded with albinism, sitting in a car',caption: '&lt;The_twins_from_the_matrix_reloaded&gt;' }
+            { src: 'https://mxmadu.github.io/phuk-phace/img/voldemort.jpg', alt: 'Voldemort, from the Harry Potter Franchise, bald and extremely pale, holding a wand menancingly', caption: '&lt;VOLDEMORT_IN_the_HARRY_POTTER_movies&gt;' },
+            { src: 'https://mxmadu.github.io/phuk-phace/img/twins.png', alt: 'The twins from The Matrix Reloaded with albinism, sitting in a car',caption: '&lt;The_twins_from_the_matrix_reloaded&gt;' }
         ],
         footer: '',
     },
@@ -115,8 +115,8 @@ gltfLoader.load('https://mxmadu.github.io/phuk/models/compressed.glb', function(
         header: '&lt;HAIR_LOSS&gt;',
         text: 'Bald hair or conditions resulting in hair loss like alopecia are often ascribed to villains across media. They are often portrayed as antisocial and apathetic evil geniuses, with the worsening of their conditioning often coinciding with their downward spiral.',
         images: [
-            { src: 'https://mxmadu.github.io/phuk/img/eggman.jpeg', alt: 'Dr. Eggman, bald and round, wears a red coat and black pants that blend into boots', caption: '&lt;Dr._Eggman_in_sonic_the_hedgehog&gt;' },
-            { src: 'https://mxmadu.github.io/phuk/img/scott_evil.jpeg', alt: 'Scott Evil in Austin Powers, balding in the front but with spiky hair all over', caption: '&lt;Scott_Evil_in_Austin_Powers&gt;*' }
+            { src: 'https://mxmadu.github.io/phuk-phace/img/eggman.jpeg', alt: 'Dr. Eggman, bald and round, wears a red coat and black pants that blend into boots', caption: '&lt;Dr._Eggman_in_sonic_the_hedgehog&gt;' },
+            { src: 'https://mxmadu.github.io/phuk-phace/img/scott_evil.jpeg', alt: 'Scott Evil in Austin Powers, balding in the front but with spiky hair all over', caption: '&lt;Scott_Evil_in_Austin_Powers&gt;*' }
         ],
         footer: '*Scott starts out with a head full of hair but by Goldmember (2001) becomes fully evil and therefore fully bald.',
     },
@@ -125,8 +125,8 @@ gltfLoader.load('https://mxmadu.github.io/phuk/models/compressed.glb', function(
       header: '&lt;NARROW_FACE&gt;',
       text: 'Narrow\/angular faces are presented in stark contrast to protagonists who are usually depicted with rounder features. This includes sharper cheekbones, pointy chins, almond-shaped eyes (leftover from anti-Asian propaganda in Western media) all to create the impression that the character is untrustworthy and conniving.',
       images: [
-          { src: 'https://mxmadu.github.io/phuk/img/moira.jpeg', alt: 'Moira from Overwatch, a red-head with a long, angular face', caption: '&lt;Moira_in_overwatch&gt;' },
-          { src: 'https://mxmadu.github.io/phuk/img/rasputin.jpg', alt: 'Rasputin in Anastasia, long narrow face, dark hair and is depicted with some green smoke/light swirling around his head', caption: '&lt;rasputin_in_anastasia&gt;' }
+          { src: 'https://mxmadu.github.io/phuk-phace/img/moira.jpeg', alt: 'Moira from Overwatch, a red-head with a long, angular face', caption: '&lt;Moira_in_overwatch&gt;' },
+          { src: 'https://mxmadu.github.io/phuk-phace/img/rasputin.jpg', alt: 'Rasputin in Anastasia, long narrow face, dark hair and is depicted with some green smoke/light swirling around his head', caption: '&lt;rasputin_in_anastasia&gt;' }
       ],
       footer:'',
   },
@@ -135,8 +135,8 @@ gltfLoader.load('https://mxmadu.github.io/phuk/models/compressed.glb', function(
     header: '&lt;DISABILITY&gt;',
     text: 'Antagonists are too often given one or more disabilities (blindness, prosthetic limbs, genetic conditions, etc.) which are meant to represent personality flaws and give the impression that the character is vengeful and malignant, either by nature or due to some supernatural (or historical) event.',
     images: [
-        { src: 'https://mxmadu.github.io/phuk/img/kriplespac.jpeg', alt: 'Professor Von Kriplespac, from Conker\'s Bad Fur Day, a rodent-like creature with a robotic arm and mechanical eye sitting in a jet-powered, joy-stick-controlled chair', caption: '&lt;Professor_von_kriplespac_in_conker\'s_bad_fur_day&gt;'},
-        { src: 'https://mxmadu.github.io/phuk/img/aemond.jpg', alt: 'Aemond Targaryen from House of The Dragon, long blonde hair, long face and a scar down his left eye covered by an eye patch', caption: '&lt;Aemond_Targaryen_in_house_of_the_Dragon&gt;' }
+        { src: 'https://mxmadu.github.io/phuk-phace/img/kriplespac.jpeg', alt: 'Professor Von Kriplespac, from Conker\'s Bad Fur Day, a rodent-like creature with a robotic arm and mechanical eye sitting in a jet-powered, joy-stick-controlled chair', caption: '&lt;Professor_von_kriplespac_in_conker\'s_bad_fur_day&gt;'},
+        { src: 'https://mxmadu.github.io/phuk-phace/img/aemond.jpg', alt: 'Aemond Targaryen from House of The Dragon, long blonde hair, long face and a scar down his left eye covered by an eye patch', caption: '&lt;Aemond_Targaryen_in_house_of_the_Dragon&gt;' }
     ],
     footer: '',
     
@@ -150,7 +150,7 @@ gltfLoader.load('https://mxmadu.github.io/phuk/models/compressed.glb', function(
         div.style.position = 'absolute';
         div.style.width = '20px';
         div.style.height = '20px';
-        div.style.backgroundImage = 'url("https://mxmadu.github.io/phuk/img/touchpoint.png")';
+        div.style.backgroundImage = 'url("https://mxmadu.github.io/phuk-phace/img/touchpoint.png")';
         div.style.backgroundSize = 'cover';
         div.style.backgroundColor = 'transparent';
         div.style.cursor = 'pointer';
@@ -222,7 +222,7 @@ line.style.display = 'none';
 document.body.appendChild(line);
 
 const closeImage = new Image();
-closeImage.src = 'https://mxmadu.github.io/phuk/img/close.png';
+closeImage.src = 'https://mxmadu.github.io/phuk-phace/img/close.png';
 closeImage.style.position = 'absolute';
 closeImage.style.width = '25px';
 closeImage.style.height = '25px';
@@ -240,7 +240,7 @@ function showInfoBox(event, point) {
   infoBox.innerHTML = `
       <div style="float: right; display: flex; align-items: center;">
           <span style="margin-right: 10px; color: #5EFF12; font-family: 'Space Mono', monospace; font-size: 16px; cursor: pointer;" class="close-button">&lt;CLOSE&gt;</span>
-          <img src="https://mxmadu.github.io/phuk/img/close.png" style="width: 20px; height: 20px; cursor: pointer;" class="close-button" />
+          <img src="https://mxmadu.github.io/phuk-phace/img/close.png" style="width: 20px; height: 20px; cursor: pointer;" class="close-button" />
       </div>
       <br>
       <br>
