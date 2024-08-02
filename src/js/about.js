@@ -53,7 +53,7 @@ pmremGenerator.compileEquirectangularShader();
 const loadHDR = () => {
   return new Promise((resolve, reject) => {
     const hdrLoader = new RGBELoader(loadingManager);
-    hdrLoader.load('../img/studio.hdr', function (texture) {
+    hdrLoader.load('https://mxmadu.github.io/phuk/img/studio.hdr', function (texture) {
       const envMap = pmremGenerator.fromEquirectangular(texture).texture;
       scene.background = envMap;
       scene.environment = envMap;
@@ -109,9 +109,9 @@ function animate() {
 // Load all resources and start rendering
 Promise.all([
   loadHDR(),
-  loadModel('../models/compressed.glb', { x: 2, y: 3, z: 0 }),
-  loadModel('../models/compressed_D.glb', { x: 0, y: 0, z: 0 }),
-  loadModel('../models/compressed_S.glb', { x: -2, y: 3, z: 0 })
+  loadModel('https://mxmadu.github.io/phuk/models/compressed.glb', { x: 2, y: 3, z: 0 }),
+  loadModel('https://mxmadu.github.io/phuk/models/compressed_D.glb', { x: 0, y: 0, z: 0 }),
+  loadModel('https://mxmadu.github.io/phuk/models/compressed_S.glb', { x: -2, y: 3, z: 0 })
 ]).then(() => {
   renderer.setAnimationLoop(animate);
 }).catch(error => {
