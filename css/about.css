@@ -334,6 +334,7 @@ div.scroll-container, div.ref-container {
     padding-right: 10%;
     padding-bottom: 5%;
     background-color: black;
+    width:100%;
 }
 
 .about-container p{
