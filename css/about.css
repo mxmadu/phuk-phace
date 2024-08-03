@@ -358,15 +358,15 @@ div.scroll-container, div.ref-container {
     white-space: nowrap;
     margin: 0;
     background-color: black;
-    width: 250%;
+    width: 100%;
     overflow-y: hidden;
     
 }
 
 .marquee2-text {
     display: inline-block;
-    width: 80%;
-    animation: marquee 10s infinite linear;
+    width: 100%;
+    animation: marquee 7s infinite linear;
     /* padding: 5%; */
     padding: 0;
 }
@@ -375,14 +375,40 @@ div.scroll-container, div.ref-container {
     0% {
         transform: translateX(0%);
     }
-    200% {
-        transform: translateX(-200%);
+    100% {
+        transform: translateX(-100%);
     }
 }
 
 .marquee4{
     animation-delay: 2s;
 
+}
+
+.header-marquee3 {
+    overflow: hidden;
+    position: relative;
+    /* display: flex; */
+    white-space: nowrap;
+    margin: 0;
+    background-color: black;
+    width: 100%;
+    overflow-y: hidden;
+    
+}
+
+.marquee3-text {
+    display: inline-block;
+    /* width: 100%; */
+    animation: marquee 10s infinite linear;
+    /* padding: 5%; */
+    padding: 0;
+}
+
+.marquee3-text h1{
+    font-size: 14px;
+    line-height: 3;
+    margin: 0;
 }
 
 
