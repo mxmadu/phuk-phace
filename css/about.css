@@ -543,5 +543,30 @@ div.scroll-container, div.ref-container {
             transform: translateX(-200%);
         }
     }
+
+    
+    .marquee3-text h1{
+        font-size: 26px;
+    }
+
+    .header-marquee3 {
+        overflow: hidden;
+        position: relative;
+        /* display: flex; */
+        white-space: nowrap;
+        margin: 0;
+        background-color: black;
+        width: 100%;
+        overflow-y: hidden;
+        
+    }
+    
+    .marquee3-text {
+        display: inline-block;
+        width: 100%;
+        animation: marquee 10s infinite linear;
+        /* padding: 5%; */
+        padding: 0;
+    }
     
 }
