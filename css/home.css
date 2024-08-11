@@ -288,6 +288,9 @@ progress::-moz-progress-bar {
 
 }
 
+.soundtrack{
+    display:none;
+}
 
 
 
