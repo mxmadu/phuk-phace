@@ -227,6 +227,18 @@ closeImage.style.display = 'none';
 document.body.appendChild(closeImage);
 
 const clickToleranceRadius = 20; 
+
+const clickAudio = new Audio('https://mxmadu.github.io/phuk-phace/clickSound.mp3'); 
+clickAudio.preload = 'auto';
+
+
+function playClickAudio() {
+  clickAudio.currentTime = 0; 
+  clickAudio.play().catch(error => {
+    console.error('Audio play failed:', error);
+  });
+}
+
 function showInfoBox(event, point) {
   const headerText = point.header;
   const contentText = point.text;
@@ -325,6 +337,7 @@ function handleClick(event) {
             const dy = event.clientY - elementY;
 
             if (Math.sqrt(dx * dx + dy * dy) <= clickToleranceRadius) {
+		playClickAudio(); 
                 showInfoBox(event, touchpoint);
             }
         });
