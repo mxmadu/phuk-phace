@@ -288,9 +288,22 @@ progress::-moz-progress-bar {
 
 }
 
-.soundtrack{
-    display:none;
+#splash {
+  position: fixed; top: 0; left: 0; z-index: 999;
+  width: 100vw; height: 100vh;
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: left;
+    font-size: 24px;
 }
+
+#splash.hide {
+  opacity: 0; visibility: hidden;
+  transition: all 1s;
+}
+
+
 
 
 
@@ -458,15 +471,11 @@ progress::-moz-progress-bar {
     }
     
 
-    /* #full-screen img{
-        width: 10%;
-    } */
+   #splash {
+    font-size: 30px;
+}
 
-    /* #full-screen:active{
-        opacity:var(--secondary);
-    } */
+    
 
-    .soundtrack{
-    display:none;
-    }
+
 }
