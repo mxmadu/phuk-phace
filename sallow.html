@@ -85,6 +85,17 @@
 </body>
 <script type="module" src= "src/js/phukS.js"></script>
 <script>
+    function start () {
+  let splash = document.getElementById("splash");
+
+  splash.addEventListener("transitionend", () => {
+    document.getElementById("soundtrack").play();
+    splash.remove();
+  });
+
+  splash.classList.add("hide");
+
+}
     document.addEventListener("DOMContentLoaded", function() {
         const currentUrl = window.location.pathname.split("/").pop();
         console.log("Current URL:", currentUrl);
