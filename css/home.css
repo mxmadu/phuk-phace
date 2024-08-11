@@ -288,36 +288,20 @@ progress::-moz-progress-bar {
 
 }
 
-/* .splash-container{
-     position: absolute;
-    left: 50%;
-    top: 50%;
+
+#splash {
+ position: absolute;
     z-index: 999;
-    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 1);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    } */
-
-#splash {
- position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 999;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    font-family: "Space Mono", monospace;
-    font-weight: 700;
-    color: var(--primary);
-    text-align: left;
-    font-size: 24px;
+    cursor: pointer;
+    
+    
 }
 
 #splash.hide {
@@ -325,18 +309,19 @@ progress::-moz-progress-bar {
   transition: all 1s;
 }
 
+#splash p{
+    left: 50%;
+    top: 50%;
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: left;
+    font-size: 24px;
+   
+
+}
 
 
-
-
-
-
-
-
-/* #navbar{
-    
-
-} */
 
 @media only screen and (min-width: 768px) {
 
@@ -493,8 +478,10 @@ progress::-moz-progress-bar {
     }
     
 
-   #splash {
+ #splash p {
     font-size: 30px;
+    cursor: pointer;
+
 }
 
     
