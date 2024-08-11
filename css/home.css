@@ -465,5 +465,8 @@ progress::-moz-progress-bar {
     /* #full-screen:active{
         opacity:var(--secondary);
     } */
-    
+
+    .soundtrack{
+    display:none;
+    }
 }
