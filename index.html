@@ -36,7 +36,7 @@
     </div>
 
      <audio id="soundtrack" src="https://mxmadu.github.io/phuk-phace/PHUK_final.mp3" loop></audio>
-    <audio id="clickAudio" src="https://github.com/mxmadu/phuk-phace/glitch.mp3"></audio>
+    <audio id="clickAudio" src="https://mxmadu.github.io/phuk-phace/glitch.mp3"></audio>
         
     
     <!-- <div class="menu-content"> -->
@@ -98,15 +98,14 @@
         let splash = document.getElementById("splash");
         let clickAudio = document.getElementById("clickAudio");
 
-        // Play the click audio when "Click to start!" is clicked
         clickAudio.play();
 
         splash.addEventListener("transitionend", () => {
-            document.getElementById("soundtrack").play(); // Play the main soundtrack after splash fades
+            document.getElementById("soundtrack").play(); 
             splash.remove();
         });
 
-        splash.classList.add("hide"); // Trigger the fade-out effect
+        splash.classList.add("hide"); 
     }
     
     document.addEventListener("DOMContentLoaded", function() {
