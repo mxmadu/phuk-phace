@@ -33,6 +33,7 @@
     </div>
 
      <audio id="soundtrack" src="https://mxmadu.github.io/phuk-phace/PHUK_final.mp3" loop></audio>
+    <audio id="clickAudio" src="https://mxmadu.github.io/phuk-phace/glitch.mp3"></audio>
     
     
     
@@ -88,6 +89,9 @@
 <script>
 function start () {
   let splash = document.getElementById("splash");
+    let clickAudio = document.getElementById("clickAudio");
+
+    clickAudio.play();
 
   splash.addEventListener("transitionend", () => {
     document.getElementById("soundtrack").play();
