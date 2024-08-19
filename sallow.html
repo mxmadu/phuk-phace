@@ -32,7 +32,7 @@
         <p onclick="start()">&#128121; Click to start!</p>
     </div>
 
-     <audio id="soundtrack" src="https://mxmadu.github.io/phuk-phace/PHUK_final.mp3" loop></audio
+     <audio id="soundtrack" src="https://mxmadu.github.io/phuk-phace/PHUK_final.mp3" loop></audio>
     <audio id="clickAudio" src="https://mxmadu.github.io/phuk-phace/glitch.mp3"></audio>
     
     
@@ -87,19 +87,18 @@
 <script type="module" src= "src/js/phukS.js"></script>
 <script>
     function start () {
-  let splash = document.getElementById("splash");
-        let clickAudio = document.getElementById("clickAudio"); 
+        let splash = document.getElementById("splash");
+        let clickAudio = document.getElementById("clickAudio");
 
         clickAudio.play();
 
-  splash.addEventListener("transitionend", () => {
-    document.getElementById("soundtrack").play();
-    splash.remove();
-  });
+        splash.addEventListener("transitionend", () => {
+            document.getElementById("soundtrack").play(); 
+            splash.remove();
+        });
 
-  splash.classList.add("hide");
-
-}
+        splash.classList.add("hide"); 
+    }
     document.addEventListener("DOMContentLoaded", function() {
         const currentUrl = window.location.pathname.split("/").pop();
         console.log("Current URL:", currentUrl);
